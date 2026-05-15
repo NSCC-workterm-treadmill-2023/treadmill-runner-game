@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# Ruins Run
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A browser-based 3D endless runner built with React, Three.js, and TypeScript. Dodge obstacles, collect coins, and see how far you can go through an ancient temple ruin.
 
-Currently, two official plugins are available:
+![Ruins Run preview](runner-preview.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Installation
 
-## React Compiler
+**Prerequisites:** Node.js 18+ and [pnpm](https://pnpm.io/installation)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Running
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+pnpm dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Open [http://localhost:5173](http://localhost:5173) in your browser. Click or press any key to start the audio, then play.
+
+To build for production:
+
+```bash
+pnpm build
+pnpm preview   # serve the built output locally
+```
+
+## How to Play
+
+Your runner moves forward automatically. Your job is to dodge obstacles and collect coins.
+
+### Controls
+
+|  Action   | Keyboard              | Touch                          |
+|-----------|-----------------------|--------------------------------|
+| Move left  | `←` or `A`           | Tap left third of screen       |
+| Move right | `→` or `D`           | Tap right third of screen      |
+| Jump       | `↑`, `W`, or `Space` | Tap top third of screen        |
+| Slide      | `↓` or `S`           | Tap centre of screen           |
+
+### Obstacles
+
+| Obstacle | How to clear |
+|----------|--------------|
+| 🔥 Fire pit | **Jump** over it |
+| 🪨 Stone barrier | **Jump** over it |
+| 🌿 Limbo vine | **Slide** under it |
+
+Each obstacle shows a visual cue: yellow chevrons mean jump, cyan chevrons mean slide.
+
+### Scoring
+
+- Collecting a coin: **+10 pts**
+- The game speeds up gradually as you run further — there's no finish line.
+
+## Development
+
+```bash
+pnpm lint    # run ESLint
 ```
