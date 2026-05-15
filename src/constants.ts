@@ -1,0 +1,10 @@
+export const LANES = [-3.1, 0, 3.1]
+export const CHUNK_LENGTH = 18
+export const CHUNK_COUNT = 18
+export const JUMP_DURATION_MS = 760
+export const JUMP_HEIGHT = 1.85
+export const FIRE_CLEARANCE = 0.5
+export const BARRIER_CLEARANCE = 0.9
+export const COIN_PICKUP_DEPTH = 1.1
+export const OBSTACLE_HIT_DEPTH = 0.58
+export const CRASH_RESET_MS = 650
